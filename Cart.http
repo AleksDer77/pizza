@@ -1,0 +1,12 @@
+GET http://localhost:8080/api/carts
+Content-Type: application/json
+Authorization: Bearer 1|ZpYjJi4lamXAi360Lo2mifXVrkNNeNoFuLAfGDNb1d1f2c30
+
+{}
+
+###
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=PhpStorm
+
+###

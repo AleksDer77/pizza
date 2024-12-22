@@ -1,0 +1,32 @@
+throw new \Illuminate\Database\Eloquent\ModelNotFoundException();
+exit
+app('APP_ENV');
+app('APP');
+env('APP_ENV');
+exit
+env('APP_ENV');
+exit
+env('APP_ENV');
+env('testing');
+--env=testing
+exit
+app('cartService')
+use App\Services\CartService
+;
+app('cartService')
+use App\Services\CartService\CartService
+app('cartService')
+app('auth');
+$auth = app('auth');
+$auth->user();
+$auth->get();
+$auth->change();
+$auth->getDefaultDriver();
+exit
+app(App\Services\CartSerice\CartService);
+app(App\Services\CartSerice\CartService::class);
+app(App\Services\CartService\CartService::class);
+app(App\Services\CartService\CartService::class);
+exit
+app(App\Services\CartService\CartService::class);
+exit
