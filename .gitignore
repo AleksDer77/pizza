@@ -24,4 +24,4 @@ yarn-error.log
 /.vscode
 /.zed
 /.composer
-.bash_history
+/.bash_history
