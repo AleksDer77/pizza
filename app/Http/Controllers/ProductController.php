@@ -9,7 +9,7 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function show($id)
+    public function show($id): ProductResource
     {
         $product = Product::query()->findOrFail($id);
 

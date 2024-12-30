@@ -1,13 +1,12 @@
-D_C = docker-compose
-P_A = php artisan
-E_P_F = exec php-fpm
-
+D_C=docker-compose
+P_A=php artisan
+E_P_F=exec php-fpm
+exec:	up
+	docker exec -it php-fpm bash
 test:
 	${D_C} ${E_P_F} ${P_A} test
 up:
 	${D_C} up -d
-exec:	up
-	docker exec -it php-fpm bash
 down:
 	${D_C} down
 upb:

@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 interface CartStorageInterface
 {
-    public function getItems();
+    public function load();
 
-    public function saveItems();
+    public function save();
 }

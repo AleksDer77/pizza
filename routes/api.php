@@ -25,9 +25,6 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::group(['prefix' => 'carts'], function () {
     Route::get('', [CartController::class, 'index'])->name('cart.index');
-//    Route::get('/', function (CartService $service) {
-//        return $service->getCart();
-//    });
     Route::post('/{id}', [CartController::class, 'addToCart'])->name('cart.addToCart');
 });
 

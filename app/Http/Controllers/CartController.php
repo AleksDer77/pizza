@@ -4,27 +4,31 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Services\CartService\CartDtoService;
 use app\Services\CartService\CartService;
-use Illuminate\Http\Request;
-
-//use App\Services\CartService\CartService;
+use Illuminate\Http\JsonResponse;
 
 class CartController extends Controller
 {
-
-    public function __construct(public CartService $cartService)
-    {
+    public function __construct(
+        public CartService $cartService,
+        private readonly CartDtoService $cartDtoService,
+    ) {
     }
 
-    public function index()
+    public function index(): JsonResponse
     {
-//       dd(request()->header());
-        return $this->cartService->getUser();
+        $cart = $this->cartService->getCart();
+
+        return response()->json([$this->cartDtoService->createCartDto($cart), 200]);
     }
 
-    public function addToCart($id, $quantity = 1)
+    public function addToCart($id, $quantity = 1): void
     {
-          $this->cartService->add($id, $quantity);
+        $product = Product::findOrFail($id);
+        $productDto = $this->cartDtoService->createProductDto($product, $quantity);
+        $this->cartService->add($productDto);
 //        $product = Product::findOrFail($id);
 //        $this->cartService->add($product->id, $quantity);
 //        $cart = Cart::firstOrCreate(['user_id' => Auth::id()])->load('items');

@@ -4,33 +4,43 @@ declare(strict_types=1);
 
 namespace app\Services\CartService;
 
+use App\Dto\ProductDto;
 use app\Services\CartStorage\CartStorageInterface;
+use App\Services\Service\CartLimitService;
 
 class CartService
 {
-    public function __construct(public CartStorageInterface $cartStorage)
-    {
+    /**
+     * @var ProductDto[]
+     */
+    private array $cartItems = [];
+    public function __construct(
+        protected CartStorageInterface $cartStorage,
+        protected CartLimitService $cartLimitService,
+    ) {
     }
 
-    public function getCart()
+    public function getCart():array
     {
-        return $this->cartStorage->getItems();
+        $this->loadItems();
+        return $this->cartItems;
     }
 
-    public function add($id, $quantity)
+    public function add(ProductDto $data):void
     {
-        $cartItems = $this->loadItems();
+        $this->loadItems();
+        $res = $this->cartLimitService->checkCount($this->cartItems, $data);
+        dd($res);
     }
 
-    private function loadItems()
+    private function loadItems(): void
     {
-        return $this->cartStorage->getItems();
+        if (empty($this->cartItems)) {
+            $this->cartItems = $this->cartStorage->load();
+        }
     }
 
-    public function getUser()
-    {
-        return $this->cartStorage->getUser();
-   }
+
     private function saveItems($id): void
     {
         $this->cartStorage->saveItems($id);

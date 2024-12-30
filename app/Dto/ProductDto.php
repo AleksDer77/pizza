@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace App\Dto;
 
-final class CartItemDto
+final class ProductDto
 {
     public function __construct(
-        public int $id,
         public int $productId,
-        public int $quantity,
         public int $categoryId,
         public string $name,
-        public string $price,
+        public int $price,
+        public int $totalPrice,
+        public int $quantity,
         public string $imageUrl,
+        public string $currency,
     ) {
     }
 }

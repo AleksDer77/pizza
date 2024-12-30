@@ -199,3 +199,130 @@ art test
 exit
 exit
 exit
+exit
+exit
+exit
+cl
+exit
+exit
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+art test:command
+exit
+art test
+art test
+art test
+art test
+composer dump-autoload
+exit
+exit
+art test
+clear
+art list
+art migrate:status
+art migrate:rollback
+art migrate:status
+art migrate:rollback
+art migrate:status
+art migrate:rollback --env=testing
+art migrate:status --env=testing
+art migrate --seed
+exit
+./vendor/bin/phpunit
+/vendor/bin/phpunit
+.vendor/bin/phpunit
+./vendor/bin/phpunit
+art migrate --seed --env=testing
+./vendor/bin/phpunit
+art test
+./vendor/bin/phpunit --color
+./vendor/bin/phpunit --colors
+./vendor/bin/phpunit --color=always
+art test
+exit
+art db:list
+art list
+art db:wipe
+art migrate --seed
+exit
+./vendor/bin/phpunit
+art test
+./vendor/bin/phpunit
+art test
+art test
+art test
+composer d a
+composer dump-autoload
+art test
+art test
+exit
+art test
+art test
+art test
+art test
+art test
+art test
+art test
+art test
+art test
+art test
+art test
+art test
+
+art test
+exit
+exit
+art tinker
+exit
+whoim
+who
+who
+w
+whoami
+ps aux
+ps
+aux
+exit
+art test
+exit
+exit
+clear
+exit

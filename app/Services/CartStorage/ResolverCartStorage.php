@@ -4,17 +4,24 @@ declare(strict_types=1);
 
 namespace App\Services\CartStorage;
 
-use App\Services\Service\UserService;
+use App\Services\CartService\CartDtoService;
+use App\Services\Service\CartLimitService;
 use Illuminate\Http\Request;
 
-class ResolverCartStorage
+readonly class ResolverCartStorage
 {
-
-    public function __invoke(Request $request)
+    public function __construct(
+        protected CartDtoService $cartDtoService,
+    )
     {
-        if ($request->headers->has('Authorization')) {
-            return new RegisteredUserDbCartStorage($request->header('Authorization'), new UserService());
+    }
+
+    public function resolve(Request $request): CartStorageInterface
+    {
+        $token = $request->header('X-Cart-Token');
+        if (auth('sanctum')->check()) {
+            return new RegisteredUserDbCartStorage($this->cartDtoService);
         }
-            return new GuestDBStorage($request->header('X-Cart-Token'));
+            return new GuestDBStorage($token);
     }
 }

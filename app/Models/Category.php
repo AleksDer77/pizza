@@ -16,13 +16,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Category extends Model
 {
     protected $fillable = [
-//        'name',
+        'name',
         'description',
+        'limit',
         'image_url',
+
     ];
 
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public static function getLimit(): array
+    {
+        return self::query()->pluck('limit', 'id')->toArray();
     }
 }

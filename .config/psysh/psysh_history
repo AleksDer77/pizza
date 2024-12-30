@@ -30,3 +30,16 @@ app(App\Services\CartService\CartService::class);
 exit
 app(App\Services\CartService\CartService::class);
 exit
+use App\Services\CartService\CartDtoService;
+$service = App\Services\CartService\CartDtoService
+$service = App\Services\CartService\CartDtoService::class
+$product = Product::find(1);
+$service->createProductDto($product);
+$service
+$service = new App\Services\CartService\CartDtoService
+$service->createProductDto($product);
+$service->createProductDto($product, 2);
+$data = Product::whereIn('id', [1, 2, 3])->get();
+$service->createCartDto($data);
+$prdsDto = $service->createProductDto($data);
+exit

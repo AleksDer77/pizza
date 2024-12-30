@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Exceptions\ResourceNotFoundException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
 /**
@@ -18,10 +19,13 @@ use Illuminate\Support\Collection;
  * @property string $image_url
  * @property boolean $available
  * @property boolean $featured
+ * @property mixed $product
+ * @property mixed $quantity
  * @method mergeWhen(bool $is_admin, array $array)
  */
 class Product extends Model
 {
+    public const CURRENCY_RU = 'RUB';
     protected $fillable =
         [
             'id',
@@ -43,6 +47,10 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function cartItems(): HasMany
+    {
+        return $this->hasMany(CartItem::class);
+    }
     public function getActive(): Collection
     {
         return $this->where('available', true)->get();
